@@ -1,47 +1,45 @@
 #include <bits/stdc++.h>
 
-#define nl "\n"
-
-#define all(v) v.begin(),v.end()
-#define allr(v) v.rbegin(),v.rend()
-
-#define FOR(i,k,n) for(int i=k;i<n;i++)
-
-#define sz(vec) (int)vec.size()>
-
 using namespace std;
-
-void solve(int caseN)
-{
-    int N,minA=1e9,minB=1e9; cin>>N;
-    int a[N],b[N];
-    
-    for(int i=0;i<N;i++)
-    {
-        int x; cin>>x;
-        a[i]=x;
-        minA=min(minA,x);
-    }
-    
-    for(int i=0;i<N;i++)
-    {
-        int x; cin>>x;
-        b[i]=x;
-        minB=min(minB,x);
-    }
-    
-    long long ans=0;
-    for(int i=0;i<N;i++)
-    {
-        ans+=max(a[i]-minA,b[i]-minB);
-    }
-    cout<<ans<<nl;
-}
 
 int main()
 {
-    ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
-	int T; cin>>T;
-	while(T--)
-	    solve(T+1);
+	ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+	
+	int t,n; cin>>t;
+	
+	while(t--)
+	{
+	    cin>>n;
+	    vector<int> vec1(n);
+	    vector<int> vec2(n);
+	    int minA=1e9,minB=1e9;
+	    unsigned long long ans=0;
+	    
+	    for(int i=0;i<n;i++)
+	    {
+	        int a;
+	        cin>>a;
+	        vec1[i]=a;
+	        
+	        minA=min(minA,a);
+	    }
+	    
+	    for(int i=0;i<n;i++)
+	    {
+	        int b;
+	        cin>>b;
+	        vec2[i]=b;
+	        
+	        minB=min(minB,b);
+	    }
+	    
+	    for(int i=0;i<n;i++)
+	    {
+	        ans+=max(vec1[i]-minA,vec2[i]-minB);
+	    }
+	    
+	    cout<<ans<<"\n";
+	    
+	}
 }

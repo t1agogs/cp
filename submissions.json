@@ -527,6 +527,23 @@
     ],
     "timestamp": "Jan/12/2021 23:46"
   },
+  "CF88987526": {
+    "contest_id": 1399,
+    "language": "GNU C++14",
+    "path": "codeforces/1399/A.cpp",
+    "platform": "Codeforces",
+    "problem_index": "A",
+    "problem_name": "Remove Smallest",
+    "problem_url": "https://codeforces.com/contest/1399/problem/A",
+    "submission_id": "CF88987526",
+    "submission_url": "https://codeforces.com/contest/1399/submission/88987526",
+    "tags": [
+      "greedy",
+      "sortings",
+      "*800"
+    ],
+    "timestamp": "Aug/05/2020 15:58"
+  },
   "CF89074401": {
     "contest_id": 1399,
     "language": "GNU C++14",

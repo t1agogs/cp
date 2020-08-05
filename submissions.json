@@ -527,6 +527,25 @@
     ],
     "timestamp": "Jan/12/2021 23:46"
   },
+  "CF88953442": {
+    "contest_id": 535,
+    "language": "GNU C++14",
+    "path": "codeforces/535/B.cpp",
+    "platform": "Codeforces",
+    "problem_index": "B",
+    "problem_name": "Tavas and SaDDas",
+    "problem_url": "https://codeforces.com/contest/535/problem/B",
+    "submission_id": "CF88953442",
+    "submission_url": "https://codeforces.com/contest/535/submission/88953442",
+    "tags": [
+      "bitmasks",
+      "brute force",
+      "combinatorics",
+      "implementation",
+      "*1100"
+    ],
+    "timestamp": "Aug/05/2020 15:12"
+  },
   "CF88987526": {
     "contest_id": 1399,
     "language": "GNU C++14",

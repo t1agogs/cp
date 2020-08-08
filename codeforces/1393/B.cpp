@@ -8,46 +8,44 @@ int main()
 {
 	ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 	
-	int n,n2=0,n4=0,n6=0,n8=0; cin>>n;
-	int array[n],freq[100001]={0};
+	int n,q; cin>>n;
+	int rec[100001]={};
+	multiset<int> s;
 	
-	for(int i=1;i<=n;i++)
+	for(int i=0;i<n;i++)
 	{
 	    int num; cin>>num;
-	    array[i]=num;
-	    freq[array[i]]++;
-	    
-	    if(freq[array[i]]==2) n2++;
-	    if(freq[array[i]]==4) n4++;
-	    if(freq[array[i]]==6) n6++;
-	    if(freq[array[i]]==8) n8++;
+	    rec[num]++;
 	}
 	
-	int q; cin>>q;
-	
-	for(int i=1;i<=q;i++)
+	for(int i=1;i<=100000;i++)
 	{
-	    char op;
-	    int x; cin>>op>>x;
+	   s.insert(rec[i]);
+	}
+	
+	cin>>q;
+	for(int i=0;i<q;i++)
+	{
+	    int num;
+	    char op; cin>>op>>num;
 	    
+	    s.erase(s.find(rec[num])); 
 	    if(op=='+')
-	    {
-	        freq[x]++;
-	        if(freq[x]==2) n2++;
-	        if(freq[x]==4) n4++;
-	        if(freq[x]==6) n6++;
-	        if(freq[x]==8) n8++;
-	    }
-	    else
-	    {
-	        if(freq[x]==2) n2--;
-	        if(freq[x]==4) n4--;
-	        if(freq[x]==6) n6--;
-	        if(freq[x]==8) n8--;
-	        freq[x]--;
-	    }
+	        ++rec[num];
+	    else --rec[num];
 	    
-	    if(n8>=1 || (n6>=1 && n2>=2) || n4>=2 || (n4>=1 && n2>=3)) cout<<"YES"<<nl;
+	    s.insert(rec[num]);
+	    
+	    auto it=s.rbegin();
+	    int n1=*it;
+	    it++;
+	    int n2=*it;
+	    it++;
+	    int n3=*it;
+	    
+	    if(n1 >= 8 || (n1>=6 && n2>=2) || (n1>=4 && n2>=4) || (n1>=4 && n2>=2 && n3>=2))
+	       cout<<"YES"<<nl;
 	    else cout<<"NO"<<nl;
+	    
 	}
 }

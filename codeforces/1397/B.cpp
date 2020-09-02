@@ -11,6 +11,8 @@
 
 using namespace std;
 
+const int64_t INF=1e17;
+
 void solve()
 {
     int N; cin>>N;
@@ -20,23 +22,23 @@ void solve()
     
     sort(all(vec));
     
-    long long ans=accumulate(all(vec),0ll)-N;
-    for(int c=1;c<=1e9;c++)
+    int64_t ans=INF;
+    for(int i=1;i<=1e9;i++)
     {
-        long long cost=0;
-        long long temp=1;
-        for(int i=0;i<N;i++)
+        int64_t temp=1;
+        int64_t cost=0;
+        for(int j=0;j<N;j++)
         {
-            cost+=abs(vec[i]-temp);
-            temp*=c;
+            cost=cost+abs(vec[j]-temp) >= INF ? INF : cost+abs(vec[j]-temp);
+            temp*=i;
             
-            if(temp >= 1e14) break;
+            if(temp >= INF) temp=INF;
         }
         
-        if(temp >= 1e14) break;
+        if(temp == INF) break;
         ans=min(ans,cost);
-        
     }
+    
     cout<<ans<<nl;
 }
 

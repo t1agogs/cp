@@ -22,8 +22,8 @@ void solve()
     
     sort(all(vec));
     
-    int64_t ans=INF;
-    for(int i=1;i<=1e9;i++)
+    int64_t ans=INF; //accumulate(all(vec),0ll)-N
+    for(int i=1;;i++)
     {
         int64_t temp=1;
         int64_t cost=0;

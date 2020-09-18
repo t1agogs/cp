@@ -14,27 +14,36 @@ using namespace std;
 void solve(/*int caseN*/)
 {
     int N; cin>>N;
+    
+    if(N==1)
+    {
+        cout<<1;
+        return;
+    }
+    
     vector<int> a(N);
+    vector<int> opt;
     
     for(auto &x:a) cin>>x;
-    
-    vector<int> left(N),right(N);
-    
-    for(int i=1;i<N;i++)
-    {
-        if(a[i] >= a[i-1]) left[i]=left[i-1]+1;
-    }
-    for(int i=N-2;i>=0;i--)
-    {
-        if(a[i] >= a[i+1]) right[i]=right[i+1]+1;
-    }
     
     int ans=0;
     for(int i=0;i<N;i++)
     {
-        ans=max(ans,right[i]+left[i]);
+        int maxIndex=i,maxIndex2=i;
+        int pos1=1,pos2=0;
+        while(maxIndex > 0 && a[maxIndex-1] <= a[maxIndex])
+        {
+            pos1++;
+            maxIndex--;
+        }
+        while(maxIndex2 < N-1 && a[maxIndex2+1] <= a[maxIndex2])
+        {
+            pos2++;
+            maxIndex2++;
+        }
+        ans=max(ans,pos1+pos2);
     }
-    cout<<ans+1;
+    cout<<ans;
 }
 
 int main()

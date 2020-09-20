@@ -10,16 +10,24 @@ int main()
 	int N,M; cin>>N>>M;
 	vector<pair<int,int>> a(M);
 	
-	for(int i=0;i<M;i++) {int x,y; cin>>x>>y; a.push_back(make_pair(x,y));}
-	
-	sort(all(a),[&](pair<int,int> l,pair<int,int> r){return l.second > r.second;});
-	
-	int ans=0;
-	for(int i=0;i<M&&N>0;i++)
+	for(int i=0;i<M;i++)
 	{
-		int cur = min(a[i].first,N);
-		ans+=cur*a[i].second;
-		N-=cur;
+		int x,y; cin>>x>>y;		
+		pair<int,int> p={x,y};
+		a.push_back(p);
+	}
+	
+	sort(all(a),[&](pair<int,int> l, pair<int,int> r){return l.second > r.second;});
+	
+	long long ans=0;
+	for(int i=0;i<M;i++)
+	{
+		while(a[i].first > 0 && N > 0)
+		{
+			a[i].first-=1;
+			N--;
+			ans+=a[i].second;
+		}
 	}
 	cout<<ans;
 }

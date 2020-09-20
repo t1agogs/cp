@@ -16,19 +16,26 @@ void solve(int caseN)
     int N; cin>>N;
     string s; cin>>s;
     
-    bool raze=false,breach=false;
-    
-    for(int i=0;i<N;i++)
-    {
-        if((i+1)&1)
-            raze|=(s[i]-'0')&1;
-        else
-            breach|=(!(s[i]-'0'&1));
-    }
-    
     if(N&1)
-        cout<<(raze?1:2)<<nl;
-    else cout<<(breach?2:1)<<nl;
+    {
+        bool raze=false;
+        for(int i=0;i<N;i+=2)
+            if((int)s[i]&1)
+                raze=true;
+        
+        if(raze) cout<<1<<nl;
+        else cout<<2<<nl;
+    }
+    else
+    {
+        bool raze=true;
+        for(int i=1;i<N;i+=2)
+            if(!((int)s[i]&1))
+                raze=false;
+        
+        if(raze) cout<<1<<nl;
+        else cout<<2<<nl;
+    }
 }
 
 int main()

@@ -58,7 +58,15 @@ void solve(int caseN)
         if(a[i]==1) check.push_back(i);
     }
     
-    cout<<ans<<nl;
+    bool works=true;
+    for(int i=0;i<check.size()-1;i++)
+    {
+        if(abs(check[i]-check[i+1])>1)
+            works=false;
+    }
+    
+    if(!works) cout<<ans<<nl;
+    else cout<<0<<nl;
 }
 
 int main()

@@ -26,60 +26,35 @@ void solve(int caseN)
 {
 	int N; cin>>N;
 	
-	vector<int> a(N),initial(N);
-	map<int,int> cnt;
+	vector<int> a(N);
+	vector<pair<int,int>> res;
 	
-	for(int i=0;i<N;i++)
+	for(auto &x:a) cin>>x;
+	
+	int index=-1;
+	for(int i=1;i<N;i++)
 	{
-		int x; cin>>x;
-		cnt[x]++;
-		a[i]=x;
-		initial[i]=x;
+		if(a[i]!=a[0])
+		{
+			res.push_back({1,i+1});
+			index=i;
+		}
 	}
 	
-	sort(all(a));
-	
-	if(a[0]==a[N-1])
-	{
+	if(index==-1)
 		cout<<"NO"<<nl;
-		return;
-	}
 	else
 	{
 		cout<<"YES"<<nl;
-		
-		int least=1e9,index=1;
-		for(auto x: cnt)
+		for(int i=1;i<N;i++)
 		{
-			if(x.second>0 && x.second<least)
-			{
-				least=x.second;
-				index=x.first;
-			}
+			if(a[i]==a[0])
+				res.push_back({index+1,i+1});
 		}
 		
-		int start=0;
-		for(int i=0;i<N;i++)
-			if(initial[i]==index)
-			{
-				start=i;
-				break;
-			}
-		
-		int helper=0;	
-		for(int i=0;i<N;i++)
+		for(int i=0;i<N-1;i++)
 		{
-			if(initial[i]!=index)
-			{
-				cout<<start+1<<" "<<i+1<<nl;
-				helper=i;
-			}
-		}
-		
-		for(int i=start+1;i<N;i++)
-		{
-			if(initial[i]==index)
-				cout<<i+1<<" "<<helper+1<<nl;
+			cout<<res[i].first<<" "<<res[i].second<<nl;
 		}
 	}
 }

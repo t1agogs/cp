@@ -19,25 +19,39 @@ void solve(/*int caseN*/)
 	int N; cin>>N;
 	string s; cin>>s;
 	
+	pair<int,int> fafa={0,0};
+	
+	bool first=false;
+	bool second=false;
 	int ans=0;
-	int countera=0,counterb=0;
-	char last='@';
 	for(int i=0;i<N;i++)
 	{
 		if(s[i]=='U')
 		{
-			if(countera==counterb && last=='U') ans++;
-			countera++;
-			last='U';
+			fafa.first++;
+			if(i==0)
+			{
+				first=true;
+				continue;
+			}
 		}
 		else
 		{
-			if(countera==counterb && last=='R') ans++;
-			counterb++;
-			last='R';
+			fafa.second++;
+			if(i==0)
+			{
+				second=true;
+				continue;
+			}
+		}
+			
+		if((first > second && fafa.first < fafa.second) || (first < second && fafa.first > fafa.second))
+		{
+			ans++;
+			first^=1;
+			second^=1;
 		}
 	}
-	
 	cout<<ans;
 }
  

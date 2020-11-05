@@ -11,13 +11,13 @@
  
 using namespace std;
 
-int a[3],x,y;
+double h,m,s,t1,t2;
 
-int getthird(int t1)
+bool works(double a, double b, double c)
 {
-	if(t1 > a[0] && t1<=a[1]) return 1;
-	else if(t1 > a[1] && t1 <=a[2]) return 2;
-	else return 3;
+	if(b<a) b+=12.0;
+	if(c<a) c+=12.0;
+	return c>b;
 }
  
 void solve(/*int caseN*/)
@@ -25,17 +25,27 @@ void solve(/*int caseN*/)
 	//freopen("gymnastics.in","r",stdin);
 	//freopen("gymnastics.out","w",stdout);
 	
-	int t1,t2;
-	cin>>a[0]>>a[1]>>a[2]>>t1>>t2;
+	cin>>h>>m>>s>>t1>>t2;
+	h=h+(m/60)+(s/3600);
+	m=(m/5)+(s/3600);
+	s=s/5;
 	
-	a[1]/=5;
-	a[2]/=5;
+	while(h>12.0)
+		h-=12.0;
+		
+	while(m>12.0)
+		m-=12.0;
+		
+	while(s>12.0)
+		s-=12.0;
 	
-	sort(a,a+3);
-	
-	if(getthird(t1)==getthird(t2))
-		puts("YES");
-	else puts("NO");
+	if(works(t1,t2,h)&&works(t1,t2,m)&&works(t1,t2,s)) puts("YES");
+	else
+	{
+		swap(t1,t2);
+		if(works(t1,t2,h)&&works(t1,t2,m)&&works(t1,t2,s)) puts("YES");
+		else puts("NO");
+	}
 }
  
 int main()

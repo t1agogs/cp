@@ -527,6 +527,22 @@
     ],
     "timestamp": "Jan/12/2021 23:46"
   },
+  "CF97707763": {
+    "contest_id": 939,
+    "language": "GNU C++14",
+    "path": "codeforces/939/B.cpp",
+    "platform": "Codeforces",
+    "problem_index": "B",
+    "problem_name": "Hamster Farm",
+    "problem_url": "https://codeforces.com/contest/939/problem/B",
+    "submission_id": "CF97707763",
+    "submission_url": "https://codeforces.com/contest/939/submission/97707763",
+    "tags": [
+      "implementation",
+      "*1000"
+    ],
+    "timestamp": "Nov/05/2020 13:24"
+  },
   "CF97743823": {
     "contest_id": 939,
     "language": "GNU C++14",

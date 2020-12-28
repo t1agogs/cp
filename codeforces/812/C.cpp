@@ -13,19 +13,21 @@
  
 using namespace std;
 
-bool checks(int mid,vector<ll> a,int s)
+ll checks(int mid,vector<ll> a,int s)
 {
 	int N=a.size();
+	vector<ll> b(N);
 	for(int i=0;i<N;i++)
-		a[i]+=(ll)(i+1)*mid;
+		b[i]+=a[i]+(ll)(i+1)*mid;
 		
-	sort(all(a));
+	sort(all(b));
 	
-	ll count=0;
+	ll ans=0;
 	for(int i=0;i<mid;i++)
-		count+=a[i];
-		
-	return (count<=s?true:false);
+		ans+=b[i];
+	
+	if(ans<=s) return ans;
+	else return -1;
 }
  
 void solve(/*int caseN*/)
@@ -34,25 +36,18 @@ void solve(/*int caseN*/)
 	
 	vector<ll> a(N); for(auto &x:a) cin>>x;
 	
-	ll l=0,r=N,ans=-1;
+	ll l=0,r=N,ans=-1,minN=0;
 	while(l<=r)
 	{
 		ll mid=l+(r-l)/2;
 		
-		if(checks(mid,a,s))
-			ans=mid,l=mid+1;
+		ll temp=checks(mid,a,s);
+		if(temp!=-1)
+			ans=mid,l=mid+1,minN=temp;
 		else r=mid-1;
 	}
 	
-	for(ll i=0;i<N;i++)
-		a[i]+=(i+1)*ans;
-		
-	sort(all(a));
-	ll res=0;
-	for(int i=0;i<ans;i++)
-		res+=a[i];
-	
-	cout<<ans<<" "<<res;
+	cout<<ans<<" "<<minN;
 }
  
 int main()

@@ -36,7 +36,7 @@ int check(int mid,int k,vector<int> &a,vector<int> &b)
 	
 	if(ans>=mid)
 	{
-		return max(val-k,0);
+		return val-k<0?0:val-k;
 	}
 	else return -1;
 }

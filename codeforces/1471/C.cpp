@@ -21,8 +21,14 @@ void solve(int caseN)
 {
 	int N,k; cin>>N>>k;
 	
-	vector<int> a(N); for(auto &x:a) cin>>x;
-	vector<int> b(k); for(auto &x:b) cin>>x;
+	vector<int> a(N);
+	vector<int> b(k);
+	
+	for(int i=0;i<N;i++)
+		scanf("%d",&a[i]);
+	
+	for(int i=0;i<k;i++)
+		scanf("%d",&b[i]);
 	
 	sort(allr(a));
 	
@@ -43,7 +49,7 @@ void solve(int caseN)
  
 int main()
 {
-    ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+    //ios::sync_with_stdio(); cin.tie(0); cout.tie(0);
     
     int T; cin>>T;
     while(T--)

@@ -1,4 +1,21 @@
 {
+  "CF103594475": {
+    "contest_id": 1095,
+    "language": "GNU C++11",
+    "path": "codeforces/1095/C.cpp",
+    "platform": "Codeforces",
+    "problem_index": "C",
+    "problem_name": "Powers Of Two",
+    "problem_url": "https://codeforces.com/contest/1095/problem/C",
+    "submission_id": "CF103594475",
+    "submission_url": "https://codeforces.com/contest/1095/submission/103594475",
+    "tags": [
+      "bitmasks",
+      "greedy",
+      "*1400"
+    ],
+    "timestamp": "Jan/07/2021 02:44"
+  },
   "CF103766939": {
     "contest_id": 1467,
     "language": "GNU C++11",

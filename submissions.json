@@ -1,4 +1,21 @@
 {
+  "CF103991899": {
+    "contest_id": 1202,
+    "language": "GNU C++11",
+    "path": "codeforces/1202/A.cpp",
+    "platform": "Codeforces",
+    "problem_index": "A",
+    "problem_name": "You Are Given Two Binary Strings...",
+    "problem_url": "https://codeforces.com/contest/1202/problem/A",
+    "submission_id": "CF103991899",
+    "submission_url": "https://codeforces.com/contest/1202/submission/103991899",
+    "tags": [
+      "bitmasks",
+      "greedy",
+      "*1100"
+    ],
+    "timestamp": "Jan/10/2021 21:06"
+  },
   "CF104033939": {
     "contest_id": 1152,
     "language": "GNU C++11",
